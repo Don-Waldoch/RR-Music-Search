@@ -4,12 +4,17 @@ import Gallery from './components/Gallery'
 import SearchBar from './components/SearchBar'
 import AlbumView from './components/AlbumView'
 import ArtistView from './components/ArtistView'
+import StylesContext from "./components/StylesContext";
 import { Fragment } from 'react/cjs/react.production.min'
 
 function App() {
 	let [search, setSearch] = useState('')
 	let [message, setMessage] = useState('Search for Music!')
 	let [data, setData] = useState([])
+
+	const ourstyle = {
+	background: "#1ECD97"
+	};
 
 	const API_URL = 'https://itunes.apple.com/search?term='
 
@@ -35,6 +40,7 @@ function App() {
 	}
 
 	return (
+        <StylesContext.Provider value={ourstyle}>
 		<div>
 			{message}
 			<Router>
@@ -50,6 +56,7 @@ function App() {
 				</Routes>
 			</Router>
 		</div>
+		</StylesContext.Provider>
   	);
 }
 

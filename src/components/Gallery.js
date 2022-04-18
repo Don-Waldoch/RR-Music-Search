@@ -1,6 +1,9 @@
 import GalleryItem from './GalleryItem'
+import React, { useContext } from "react";
+import StylesContext from "./StylesContext"
 
 function Gallery(props){
+    const ourstyle = React.useContext(StylesContext)
 
     const display = props.data.map((item,index) => {
         return (
@@ -8,7 +11,7 @@ function Gallery(props){
         )
     })
     return (
-        <div>
+        <div style={ourstyle}>
             {display}
         </div>
     )

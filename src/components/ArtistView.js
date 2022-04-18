@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
+import React, { useContext } from "react";
+import StylesContext from "./StylesContext"
 
 function ArtistView() {
+    const ourstyle = React.useContext(StylesContext)
     const navigate = useNavigate()
     const { id } = useParams()
     const [ artistData, setArtistData ] = useState([])
@@ -39,7 +42,7 @@ function ArtistView() {
     }
 
     return (
-        <div>
+        <div style={ourstyle}>
             {artistData.length > 0 ? <h2>{artistData[0].artistName}</h2> : <h2>Loading...</h2>}
             {navButtons()}
             {renderAlbums}

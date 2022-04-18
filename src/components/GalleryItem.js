@@ -1,7 +1,10 @@
 import { useState } from 'react' 
 import { Link } from 'react-router-dom'
+import React, { useContext } from "react";
+import StylesContext from "./StylesContext"
 
 function GalleryItem(props){
+    const ourstyle = React.useContext(StylesContext)
     let [view, setView] = useState(false)
 
     const simpleStyle = {

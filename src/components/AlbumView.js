@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
+import React, { useContext } from "react";
+import StylesContext from "./StylesContext"
 
 function AlbumView() {
-    const navigate = useNavigate()
+  const ourstyle = React.useContext(StylesContext)
+  const navigate = useNavigate()
     const { id } = useParams()
     const [ albumData, setAlbumData ] = useState([])
 
@@ -37,7 +40,7 @@ function AlbumView() {
     }
 
     return (
-        <div>
+        <div style={ourstyle}>
             {navButtons()}
             {renderSongs}
         </div>
